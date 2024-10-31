@@ -115,3 +115,11 @@ public void imprime() {
     System.out.println("Nome: " + this.getNome() + ", Preço: " + this.getPreco());
 }
 ```
+
+### Exemplo 04: usando construtor
+
+O tipo de retorno do método na interface funcional precisa ser compatível com o tipo da classe que terá seu construtor referenciado.
+
+O método `desenha()` deve retornar um objeto do tipo `Retangulo`.
+
+Inclui uma classe concreta chamada `Retangulo`, que possui um construtor definido e será utilizada na referência ao construtor.
