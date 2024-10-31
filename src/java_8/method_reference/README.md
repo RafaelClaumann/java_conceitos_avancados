@@ -36,3 +36,32 @@ public Example() { System.out.println("New Example created!"); }
 Supplier<Example> exampleSupplier = Example::new; // Referência a um construtor
 Example example = exampleSupplier.get();
 ```
+
+**Example01**
+
+O uso de *Method Reference* em Java 8 está diretamente relacionado ao conceito de interfaces funcionais, anotadas com `@FunctionalInterface`.
+
+Neste exemplo, vamos criar uma interface funcional chamada `Figura2D`, que inclui o método `desenha()`. Esse método aceita dois parâmetros `Double`: `altura` e `largura`, representando as dimensões de uma figura bidimensional.
+
+Como a interface `Figura2D` possui apenas um método abstrato, podemos implementá-la usando expressões lambda. Um exemplo de implementação seria:
+
+```java
+Figura2D figura = (altura, largura) -> System.out.println("Desenhando Figura. Altura: " + altura + ", e Largura: " + largura);
+```
+
+Esse tipo de interface é semelhante à interface funcional `BiConsumer<T, U>`, que contém o método `accept(T var1, U var2)`, usado para operações com dois argumentos, embora o nome do método (`accept`) não seja o mesmo de `desenha()`.
+
+Em seguida, criamos uma classe concreta chamada `Retangulo`, que possui um método `desenhaRetangulo()`, semelhante ao `desenha()` da interface `Figura2D`.
+
+Para substituir a expressão lambda por uma *Method Reference* associada a um objeto específico, fazemos o seguinte:
+
+1. Criamos um objeto `Retangulo`.
+2. Substituímos a expressão lambda `Figura2D figura = (altura, largura) -> retangulo.desenhaRetangulo(altura, largura);` por uma *Method Reference* que faz uso direto do método: `Figura2D figura = retangulo::desenhaRetangulo;`.
+
+Isso simplifica o código e melhora sua legibilidade, destacando o uso de *Method References* como uma maneira de evitar duplicidade e promover clareza.
+
+Também podemos usar a interface `BiConsumer<Double, Double>`, apesar de seu método `accept` não estar diretamente relacionado ao método `desenha()` de `Figura2D`. Um exemplo seria:
+
+```java
+BiConsumer<Double, Double> desenhaRetangulo1 = retangulo::desenhaRetangulo;
+```
