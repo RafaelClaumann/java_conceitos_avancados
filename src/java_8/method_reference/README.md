@@ -37,7 +37,7 @@ Supplier<Example> exampleSupplier = Example::new; // Referência a um construtor
 Example example = exampleSupplier.get();
 ```
 
-**Example01**
+### Exemplo 01: método de instância específico de um objeto
 
 O uso de *Method Reference* em Java 8 está diretamente relacionado ao conceito de interfaces funcionais, anotadas com `@FunctionalInterface`.
 
@@ -65,3 +65,31 @@ Também podemos usar a interface `BiConsumer<Double, Double>`, apesar de seu mé
 ```java
 BiConsumer<Double, Double> desenhaRetangulo1 = retangulo::desenhaRetangulo;
 ```
+
+### Exemplo 02: método estático de uma classe
+
+Neste exemplo, vamos substituir a expressão lambda que imprime as informações do produto por uma referência a método (`Method Reference`), simplificando ainda mais o código.
+
+A expressão lambda original é:
+
+```java
+produto -> System.out.println("Nome: " + produto.getNome() + ", Preço: " + produto.getPreco())
+```
+
+Para substituir essa expressão, crie uma classe chamada `Impressora` com um método `static void imprime(Produto p)`, que receberá um objeto `Produto` e imprimirá suas informações. A assinatura do método deve ser:
+
+```java
+public class Impressora {
+    public static void imprime(Produto p) {
+        System.out.println("Nome: " + p.getNome() + ", Preço: " + p.getPreco());
+    }
+}
+```
+
+Com o método `imprime` pronto, você poderá usar uma `Method Reference` para simplificar a impressão dos produtos na lista:
+
+```java
+produtos.forEach(Impressora::imprime);
+```
+
+Essa abordagem é útil para tornar o código mais legível e compacto, evitando a necessidade de expressões lambda quando um método existente pode realizar a tarefa de maneira direta.
