@@ -93,3 +93,25 @@ produtos.forEach(Impressora::imprime);
 ```
 
 Essa abordagem é útil para tornar o código mais legível e compacto, evitando a necessidade de expressões lambda quando um método existente pode realizar a tarefa de maneira direta.
+
+### Exemplo 03: método de instância de um objeto arbitrário
+
+Este exemplo aborda Method Reference para um método de instância de um objeto arbitrário de um tipo específico.
+
+Esse tipo de Method Reference é semelhante ao exemplo anterior (Exemplo02), em que utilizamos a notação `NomeDaClasse::nomeDoMetodo`.
+No entanto, enquanto a referência estática (`static`) invoca o método diretamente a partir da classe, a referência a partir de um objeto arbitrário invoca o método a partir de uma instância "corrente" de um tipo específico de objeto.
+
+A diferença entre esses dois tipos de referência é sutil: 
+
+1. **Referência estática**: invoca o método diretamente na classe (`Classe::metodo`).
+2. **Referência de instância de um objeto arbitrário**: invoca o método a partir de uma instância de uma classe específica, sem a necessidade de especificar um objeto concreto.
+
+Neste exemplo, vamos implementar o método `imprime` na classe `Produto`. Esse método será semelhante ao `imprime` do Example02, porém, desta vez, ele não será `static`, e não precisará do parâmetro `Produto`, pois acessará os atributos diretamente na instância corrente.
+
+Exemplo do método:
+
+```java
+public void imprime() {
+    System.out.println("Nome: " + this.getNome() + ", Preço: " + this.getPreco());
+}
+```
