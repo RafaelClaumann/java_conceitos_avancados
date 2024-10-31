@@ -1,4 +1,4 @@
-package java_8;
+package java_8.lambda_expressions;
 
 // Lembrando que 'void desenha();' é 'public abstract void desenha();'
 // A anotação @FunctionalInterface é opcional, mas serve como uma segurança indicando que a interface não mudará

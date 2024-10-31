@@ -1,4 +1,4 @@
-package java_8;
+package java_8.lambda_expressions;
 
 import java.util.ArrayList;
 import java.util.Comparator;
