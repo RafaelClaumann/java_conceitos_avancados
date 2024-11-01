@@ -13,3 +13,14 @@
 - **Lazy Evaluation**: Uma característica essencial dos `Streams` é a avaliação "preguiçosa" (*lazy*), onde as operações intermediárias não são executadas até que uma operação terminal seja chamada. Isso permite ao Java otimizar o processamento e até "pular" operações desnecessárias em certas circunstâncias.
 
 - **Paralelismo**: O Java 8 introduziu a possibilidade de trabalhar com `Streams` de forma paralela usando `parallelStream`. Com essa opção, as operações no `Stream` podem ser executadas em paralelo, distribuindo a carga de trabalho para melhorar o desempenho em conjuntos de dados grandes.
+
+### Exemplo 04: usando operações do stream
+
+- Criaremos uma classe `Produto` e uma lista de produtos dentro do método `main`.
+- Aplicaremos uma série de operações usando Streams para manipular os produtos:
+    - Filtraremos apenas os elementos que representam geladeiras.
+    - Ordenaremos as geladeiras pelo preço.
+    - Converteremos o nome das geladeiras para letras maiúsculas.
+    - Retornaremos uma lista contendo apenas os nomes das geladeiras.
+- Demonstramos como implementar um `Comparator`, tanto com uma classe anônima quanto com uma classe separada.
+- Usaremos o método `sorted()` da Stream para organizar os produtos de acordo com o `Comparator` definido, facilitando o ordenamento dos itens.
